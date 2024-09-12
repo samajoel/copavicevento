@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rainblur Landing Page Template: Tailwind Toolbox</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+      html {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      }
+      .countdown {
+        text-align: center;
+      }
+
+      .countdown div {
+        display: inline-block;
+        margin: 0 10px;
+      }
+
+      .countdown div span {
+        display: block;
+        font-size: 2rem;
+        color: white;
+      }
+
+      .label {
+        font-size: 1rem;
+        color: hsl(0, 0%, 67%);
+      }
+
+      @media (max-width: 48rem) {
+        .countdown div span {
+          font-size: 1.5rem;
+        }
+        .label {
+          font-size: 0.875rem;
+        }
+      }
+
+      @media (max-width: 30rem) {
+        .countdown div {
+          margin: 0 0.25rem;
+        }
+
+        .countdown div span {
+          font-size: 1.25rem;
+        }
+
+        .label {
+          font-size: 0.75rem;
+        }
+      }
+
+      /* // confetti */
+
+
+
+/* Estilo base */
+.confetti {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  z-index: 50;
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .confetti {
+    width: 0.7rem;  /* Reducción de tamaño en pantallas móviles */
+    height: 0.7rem;
+    top: -0.7rem;   /* Ajuste de posición para mantener la coherencia */
+  }
+}
+
+/* Ajustes para pantallas medianas (tabletas) */
+@media (min-width: 601px) and (max-width: 900px) {
+  .confetti {
+    width: 0.85rem;
+    height: 0.85rem;
+    top: -0.85rem;
+  }
+}
+.confetti .rotate {
+  animation: driftyRotate 1s infinite both ease-in-out;
+  perspective: 1000;
+}
+.confetti .askew {
+  background: linear-gradient(
+  var(--grad-direction, to bottom),
+  hsl(63, 100%, 50%) 25%,
+  hsl(23, 100%, 50%) 0% 66.667%,
+  hsl(43, 100%, 100%) 0% 100%);
+  transform: skewY(10deg);
+  width: 2rem;
+  height: 3.2rem;
+  animation: drifty 1s infinite alternate both ease-in-out;
+  perspective:1000;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+}
+
+
+.confetti:nth-of-type(7n) .askew {
+  animation-delay: -.6s;
+  animation-duration: 2.25s;
+}
+.confetti:nth-of-type(7n + 1) .askew {
+  animation-delay: -.879s;
+  animation-duration: 3.5s;
+}
+.confetti:nth-of-type(7n + 2) .askew {
+  animation-delay: -.11s;
+  animation-duration: 1.95s;
+}
+.confetti:nth-of-type(7n + 3) .askew {
+  animation-delay: -.246s;
+  animation-duration: .85s;
+}
+.confetti:nth-of-type(7n + 4) .askew {
+  animation-delay: -.43s;
+  animation-duration: 2.5s;
+}
+.confetti:nth-of-type(7n + 5) .askew {
+  animation-delay: -.56s;
+  animation-duration: 1.75s;
+}
+.confetti:nth-of-type(7n + 6) .askew {
+  animation-delay: -.76s;
+  animation-duration: 1.5s;
+}
+  
+.confetti:nth-of-type(9n) .rotate {
+  animation-duration: 2s;
+}
+.confetti:nth-of-type(9n + 1) .rotate {
+  animation-duration: 2.3s;
+}
+.confetti:nth-of-type(9n + 2) .rotate {
+  animation-duration: 1.1s;
+}
+.confetti:nth-of-type(9n + 3) .rotate {
+  animation-duration: .75s;
+}
+.confetti:nth-of-type(9n + 4) .rotate {
+  animation-duration: 4.3s;
+}
+.confetti:nth-of-type(9n + 5) .rotate {
+  animation-duration: 3.05s;
+}
+.confetti:nth-of-type(9n + 6) .rotate {
+  animation-duration: 2.76s;
+}
+.confetti:nth-of-type(9n + 7) .rotate {
+  animation-duration: 7.6s;
+}
+.confetti:nth-of-type(9n + 8) .rotate {
+  animation-duration: 1.78s;
+}
+
+@keyframes drifty {
+  0% {
+    transform: skewY(10deg) translate3d(-250%, 0, 0);
+  }
+  100% {
+    transform: skewY(-12deg) translate3d(250%, 0, 0);
+  }
+}
+@keyframes driftyRotate {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(359deg);
+  }
+}
+
+
+/* select {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  font-size: 1rem;
+  z-index: 100;
+} */
+
+
+[data-type=leaves] .confetti:nth-child(4n) {
+  color: hsl(343, 80%, 30%);
+}
+[data-type=leaves] .confetti:nth-child(4n + 1) {
+  color: hsl(103, 80%, 30%);
+}
+[data-type=leaves] .confetti:nth-child(4n + 2) {
+  color: hsl(43, 80%, 40%);
+}
+[data-type=leaves] .confetti:nth-child(4n + 3) {
+  color: hsl(23, 70%, 40%);
+}
+
+[data-type=bookmarks] .confetti:nth-child(4n) {
+  color: hsl(18, 100%, 50%);
+}
+[data-type=bookmarks] .confetti:nth-child(4n + 1) {
+  color: hsl(183, 100%, 50%);
+}
+[data-type=bookmarks] .confetti:nth-child(4n + 2) {
+  color: hsl(43, 100%, 50%);
+}
+[data-type=bookmarks] .confetti:nth-child(4n + 3) {
+  color: hsl(133, 100%, 90%);
+}
+
+
+[data-type=leaves] .confetti .askew {
+  background: currentColor linear-gradient(to right, rgba(0,0,0,0) 48%, rgba(0,0,0,.12) 0% 52%, rgba(0,0,0,0) 92%);
+  width: 2.5rem;
+  height: 4.2rem;
+  clip-path: polygon(50% 0%, 100% 20%, 80% 30%, 100% 45%, 74% 60%, 94% 80%, 82% 100%, 18% 100%, 6% 80%, 26% 60%, 0% 45%, 20% 30%, 0% 20%);
+  clip-path: polygon(56% 0%, 56% 16%, 60% 20%, 85% 40%, 100% 60%, 85% 75%, 70% 90%, 50% 100%, 15% 75%, 0% 60%, 15% 40%, 40% 20%, 44% 16%, 44% 0%)
+}
+
+[data-type=snowflake] .confetti .askew {
+  background: hsl(223, 40%, 96%);
+  clip-path: polygon(evenodd,
+  20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%, 22% 2%, 78% 2%, 98% 22%, 98% 78%, 78% 98%, 22% 98%, 2% 78%, 2% 22%, 30% 10%, 70% 10%, 90% 30%, 90% 70%, 70% 90%, 30% 90%, 10% 70%, 10% 30%, 32% 12%, 68% 12%, 88% 32%, 88% 68%, 68% 88%, 32% 88%, 12% 68%, 12% 32%, 40% 20%, 60% 20%, 80% 40%, 80% 60%, 60% 80%, 40% 80%, 20% 60%, 20% 40%
+  );
+}
+[data-type=bookmarks] .confetti .askew {
+  background: currentColor;
+  width: 1rem;
+  height: 2rem;
+  clip-path: polygon(evenodd,
+  0% 0%, 100% 0%, 100% 100%, 50% 90%, 0% 100%
+  );
+}
+
+    </style>
+</head>
+
+<body class=" flex flex-col items-center justify-center leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style="background: rgb(50,162,71); background: radial-gradient(circle, rgba(50,162,71,1) 57%, rgba(234,135,51,1) 100%);">
+    <div class="h-full flex flex-col items-center justify-center">
+        <!-- Nav -->
+
+        <!-- Main Section -->
+        <div class="flex flex-col items-center justify-center container pt-24 md:pt-36 mx-auto  md:flex-col">
+            <!-- Countdown -->
+            <div class="w-full xl:w-3/5 justify-center lg:items-start overflow-y-hidden">
+                <div class="confetti-land">
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                  </div>
+                  <div class="flex flex-wrap">
+                    <div class="w-full sm:w-8/12 mb-10">
+                      <div class="container mx-auto h-full sm:p-10">
+                        <nav class="flex px-4 justify-between items-center">
+                          <div>
+                            <img src="https://image.flaticon.com/icons/svg/497/497348.svg" alt="" class="w-8 ">
+                          </div>
+                        </nav>
+                        <header class="container px-4 lg:flex mt-10 items-center h-full lg:mt-0">
+                          <div class="w-full flex flex-col items-center justify-center">
+                            <img src="copaviclogo.png" alt="" class="mx-auto w-full md:w-4/5 transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6">
+                            <h1 class="text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-center">
+                                Cena Aniversario <br> 22 años 🎉
+                            </h1> 
+                          </div>
+                        </header>
+                      </div>
+                    </div>
+                    <img src="https://i.ibb.co/ZLZqnVL/IMG-3529.jpg" alt="Leafs" class="w-full h-48 object-cover sm:h-screen sm:w-4/12 rounded-md focus:ring transform transition hover:scale-105 duration-300 ease-in-out">
+                  </div>
+             
+
+       
+            </div>
+           <div class="opacity-75 w-full xl:w-3/5 shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4 focus:ring transform transition hover:scale-105 duration-300 ease-in-out">
+            <h2 class="text-xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-center">
+                Cuenta Regresiva al Evento
+            </h2>
+            <div class="countdown mt-6">
+                <div>
+                    <span id="months">00</span>
+                    <div class="label">Meses</div>
+                </div>
+                <div>
+                    <span id="days">00</span>
+                    <div class="label">Días</div>
+                </div>
+                <div>
+                    <span id="hours">00</span>
+                    <div class="label">Horas</div>
+                </div>
+                <div>
+                    <span id="minutes">00</span>
+                    <div class="label">Minutos</div>
+                </div>
+                <div>
+                    <span id="seconds">00</span>
+                    <div class="label">Segundos</div>
+                </div>
+            </div>
+           </div>
+            <!-- Form Section -->
+            <div class="w-full xl:w-3/5 mt-8">
+                <form id="confirmationForm" class="opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4" style="background-color: #006118;">
+                    <div class="mb-4">
+                        <label class="block text-white py-2 font-bold mb-2" for="name">Nombre Completo</label>
+                        <input
+                            class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                            id="name"
+                            type="text"
+                            name="name"
+                            required
+                        />
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-white py-2 font-bold mb-2" for="email">Correo Electrónico</label>
+                        <input
+                            class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                            id="email"
+                            type="email"
+                            name="email"
+                            required
+                        />
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-white py-2 font-bold mb-2" for="attendance">¿Asistirás al evento?</label>
+                        <select
+                            class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                            id="attendance"
+                            name="attendance"
+                            required
+                        >
+                            <option value="">Selecciona una opción</option>
+                            <option value="yes">Sí, asistiré</option>
+                            <option value="no">No, no podré asistir</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-white py-2 font-bold mb-2" for="comments">Comentarios adicionales</label>
+                        <textarea
+                            class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                            id="comments"
+                            name="comments"
+                            rows="4"
+                            placeholder="¿Tienes alguna solicitud especial o comentario?"
+                        ></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button
+                        style="background-color: #E0873D;" class="text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                            type="submit"
+                        >
+                            Confirmar Asistencia
+                        </button>
+                    </div>
+                </form>
+                <div class="opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4 focus:ring transform transition hover:scale-105 duration-300 ease-in-out">
+                    <h2 class="text-xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-center">
+                        Ubicación
+                    </h2>
+                    <iframe class="w-full rounded-lg  "
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.118287882596!2d-57.5006416!3d-25.266606000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945daf8760dc2fcd%3A0xcf88788faf300493!2sLa%20Cabiada!5e0!3m2!1sen!2spy!4v1726102018670!5m2!1sen!2spy"
+                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+                    </iframe>
+                </div>
+
+                <!-- Mensaje de confirmación -->
+                <div id="confirmationMessage" class="alert alert-success text-center hidden text-white">
+                    ¡Gracias! Tu asistencia ha sido confirmada.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tailwind JS -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzg58unsenQtTw7kZYc_45FOvHFGVMTmXzu9bqo9TzCsvk0Q3xY-ELP2W8ZRDUafYHe/exec';
+        const form = document.getElementById('confirmationForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // Mostrar el mensaje de confirmación y ocultar el formulario
+                    confirmationMessage.classList.remove('hidden');
+                    form.classList.add('hidden');
+                })
+                .catch(error => console.error('Error!', error.message));
+        });
+
+        // Count Down
+        function updateCountdown() {
+            const targetDate = new Date("2024-09-29T00:00:00");
+            const now = new Date();
+            const timeDifference = targetDate - now;
+
+            if (timeDifference <= 0) {
+                document.getElementById("months").innerText = "00";
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const months = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 30));
+            const days = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById("months").innerText = String(months).padStart(2, "0");
+            document.getElementById("days").innerText = String(days).padStart(2, "0");
+            document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        /* test */
+        var confettiPlayers = [];
+
+function makeItConfetti() {
+  var confetti = document.querySelectorAll('.confetti');
+  
+  if (!confetti[0].animate) {
+    return false;
+  }
+
+  for (var i = 0, len = confetti.length; i < len; ++i) {
+    var candycorn = confetti[i];
+    candycorn.innerHTML = '<div class="rotate"><div class="askew"></div></div>';
+    var scale = Math.random() * .7 + .3;
+    var player = candycorn.animate([
+      { transform: `translate3d(${(i/len*100)}vw,-5vh,0) scale(${scale}) rotate(0turn)`, opacity: scale },
+      { transform: `translate3d(${(i/len*100 + 10)}vw,105vh,0) scale(${scale}) rotate(${ Math.random() > .5 ? '' : '-'}2turn)`, opacity: 1 }
+    ], {
+      duration: Math.random() * 3000 + 4000,
+      iterations: Infinity,
+      delay: -(Math.random() * 7000)
+    });
+    
+    confettiPlayers.push(player);
+  }
+}
+
+makeItConfetti();
+onChange({currentTarget: {value: 'bookmarks'}})
+
+document.getElementById('type').addEventListener('change', onChange)
+
+function onChange(e) {
+  document.body.setAttribute('data-type', e.currentTarget.value);
+  confettiPlayers.forEach(player => player.playbackRate = e.currentTarget.value === 'bookmarks' ? 2 : 1);
+}
+
+
+    </script>
+</body>
+</html>
