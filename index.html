@@ -327,14 +327,7 @@
 
   <body
     class="flex flex-col items-center justify-center leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed"
-    style="
-      background: rgb(50, 162, 71);
-      background: radial-gradient(
-        circle,
-        rgba(50, 162, 71, 1) 57%,
-        rgba(234, 135, 51, 1) 100%
-      );
-    "
+    style="background-color: #2c2c2c"
   >
     <div class="h-full flex flex-col items-center justify-center">
       <!-- Nav -->
@@ -353,7 +346,7 @@
             <div class="confetti"></div>
             <div class="confetti"></div>
           </div>
-          <div class="flex flex-wrap">
+          <div class="flex flex-wrap justify-center items-center">
             <div class="w-full sm:w-8/12 mb-10">
               <div class="container mx-auto h-full sm:p-10">
                 <nav class="flex px-4 justify-between items-center"></nav>
@@ -367,30 +360,86 @@
                       class="mx-auto w-full md:w-4/5 transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6"
                     />
                     <h1
-                      class="text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-center"
+                      class="text-3xl md:text-5xl p-6 rounded-lg font-bold leading-tight text-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-transparent bg-clip-text animate-pulse"
+                      style="
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+                          0 0 10px rgba(255, 223, 0, 0.7),
+                          0 0 20px rgba(255, 215, 0, 0.5);
+                      "
                     >
                       Cena Aniversario <br />
-                      22 años 🎉
+                      22 años <br />
                     </h1>
                   </div>
                 </header>
               </div>
             </div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
             <img
-              src="https://i.ibb.co/ZLZqnVL/IMG-3529.jpg"
+              src="https://i.ibb.co/W2TnnrN/Whats-App-Image-2024-09-12-at-20-19-45.jpg"
               alt="Leafs"
-              class="w-full h-48 object-cover sm:h-screen sm:w-4/12 rounded-md focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+              class="w-full h-auto max-w-full sm:max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl object-contain rounded-md focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
             />
           </div>
         </div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
         <div
           class="opacity-75 w-full xl:w-3/5 shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4 focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
         >
           <h2
-            class="text-xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-center"
+            class="text-xl md:text-3xl font-bold leading-tight text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200"
+            style="
+              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+                0 0 10px rgba(255, 255, 255, 0.7),
+                0 0 20px rgba(255, 255, 255, 0.5);
+            "
           >
-            Cuenta Regresiva al Evento
+            Fecha 28/09/2024 <br />
+            Hora 20.30 h <br />
+            Salón de Eventos La Cabiada Luque
           </h2>
+
+          <div class="flex justify-center items-center flex-col">
+            <div class="text-center my-6">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600"
+                style="
+                  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+                    0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 200, 0, 0.5);
+                "
+              >
+                Costo
+              </h2>
+              <p
+                class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600"
+                style="
+                  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+                    0 0 10px rgba(255, 223, 0, 0.7),
+                    0 0 20px rgba(255, 215, 0, 0.5);
+                "
+              >
+                150.000 gs.
+              </p>
+            </div>
+
+            <div
+              class="text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-white animate-pulse"
+              style="
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2),
+                  0 0 15px rgba(255, 255, 255, 0.8),
+                  0 0 30px rgba(255, 255, 255, 0.5);
+              "
+            >
+              Cuenta Regresiva al Evento
+            </div>
+          </div>
+
           <div class="countdown mt-6">
             <div>
               <span id="months">00</span>
@@ -414,13 +463,54 @@
             </div>
           </div>
         </div>
+        <!-- Mensaje de confirmación -->
+        <div
+          id="confirmationMessage"
+          class="hidden text-center p-4 rounded-lg transform transition-all duration-500 ease-out"
+        >
+          <div class="flex items-center justify-center space-x-2">
+            <!-- Icono de check -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-yellow-500 animate-pulse"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <!-- Mensaje de confirmación -->
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 text-2xl font-bold"
+            >
+              ¡Gracias! Tu asistencia ha sido confirmada.
+            </span>
+          </div>
+        </div>
         <!-- Form Section -->
         <div class="w-full xl:w-3/5 mt-8">
           <form
             id="confirmationForm"
-            class="opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4"
-            style="background-color: #006118"
+            class="opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4 focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+            style="background-color: #2c2c2c"
           >
+            <div class="flex justify-center items-center">
+              <div
+                class="text-3xl md:text-5xl p-6 rounded-lg font-bold leading-tight text-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-transparent bg-clip-text animate-pulse"
+                style="
+                  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+                    0 0 10px rgba(255, 223, 0, 0.7),
+                    0 0 20px rgba(255, 215, 0, 0.5);
+                "
+              >
+                Registrate Aquí
+              </div>
+            </div>
             <div class="mb-4">
               <label class="block text-white py-2 font-bold mb-2" for="name"
                 >Nombre Completo</label
@@ -435,14 +525,14 @@
             </div>
 
             <div class="mb-4">
-              <label class="block text-white py-2 font-bold mb-2" for="email"
-                >Correo Electrónico</label
-              >
+              <label class="block text-white py-2 font-bold mb-2" for="phone">
+                Número de Teléfono
+              </label>
               <input
                 class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                id="email"
-                type="email"
-                name="email"
+                id="phone"
+                type="tel"
+                name="phone"
                 required
               />
             </div>
@@ -480,8 +570,12 @@
 
             <div class="text-center">
               <button
-                style="background-color: #e0873d"
-                class="text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                class="text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out bg-gradient-to-r from-yellow-400 to-yellow-600"
+                style="
+                  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+                    0 0 10px rgba(255, 223, 0, 0.7),
+                    0 0 20px rgba(255, 215, 0, 0.5);
+                "
                 type="submit"
               >
                 Confirmar Asistencia
@@ -491,11 +585,19 @@
           <div
             class="opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4 focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
           >
-            <h2
-              class="text-xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-center"
-            >
-              Ubicación
-            </h2>
+            <div class="flex justify-center items-center">
+              <div
+                class="text-3xl md:text-5xl p-6 rounded-lg font-bold leading-tight text-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-transparent bg-clip-text animate-pulse"
+                style="
+                  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+                    0 0 10px rgba(255, 223, 0, 0.7),
+                    0 0 20px rgba(255, 215, 0, 0.5);
+                "
+              >
+                Ubicación <br />
+                Salón La Cabiada
+              </div>
+            </div>
             <iframe
               class="w-full rounded-lg"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.118287882596!2d-57.5006416!3d-25.266606000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945daf8760dc2fcd%3A0xcf88788faf300493!2sLa%20Cabiada!5e0!3m2!1sen!2spy!4v1726102018670!5m2!1sen!2spy"
@@ -507,14 +609,6 @@
             >
             </iframe>
           </div>
-
-          <!-- Mensaje de confirmación -->
-          <div
-            id="confirmationMessage"
-            class="alert alert-success text-center hidden text-white"
-          >
-            ¡Gracias! Tu asistencia ha sido confirmada.
-          </div>
         </div>
       </div>
     </div>
@@ -522,7 +616,7 @@
     <!-- Tailwind JS -->
     <script>
       const scriptURL =
-        "https://script.google.com/macros/s/AKfycbzg58unsenQtTw7kZYc_45FOvHFGVMTmXzu9bqo9TzCsvk0Q3xY-ELP2W8ZRDUafYHe/exec";
+        "https://script.google.com/macros/s/AKfycbz70Hqt3iP_EnYvy6kfcfD1SRPldRBbEeNYoy-5Y1JiFQGI5QNR_GUOVkJFh0cd2rJB/exec";
       const form = document.getElementById("confirmationForm");
       const confirmationMessage = document.getElementById(
         "confirmationMessage"
@@ -541,7 +635,7 @@
 
       // Count Down
       function updateCountdown() {
-        const targetDate = new Date("2024-09-29T00:00:00");
+        const targetDate = new Date("2024-09-28T20:30:00");
         const now = new Date();
         const timeDifference = targetDate - now;
 
